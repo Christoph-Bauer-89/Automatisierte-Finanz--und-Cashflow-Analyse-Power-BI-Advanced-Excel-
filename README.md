@@ -19,11 +19,11 @@
 - **ETL & Data Modeling:** Power Query (Schema-Harmonisierung, Fehlerbehandlung, Spaltenoptimierung)
 - **Business Intelligence & DAX:** Power BI Desktop, DAX-Measures (gleitende Durchschnitte, Quoten, dynamische Hilfstabellen)
 - **UI/UX Design:** Modern Fintech / Nordic Corporate Design (Deep Slate Blue `#1E3A8A`, Cool Gray, Warm Amber, Soft Emerald)
-- **Datenschutz & Anonymisierung:** Lokale Verarbeitung ohne Cloud-Upload sowie mathematische Multiplikatoren-Skalierung zum Schutz sensibler Vertragsdaten.
+- **Datenschutz & Anonymisierung:** Lokale Verarbeitung ohne Cloud-Upload sowie mathematische Skalierungsfaktoren zum Schutz sensibler Vertragsdaten.
 
 ### 💡 Warum diese Architektur für den Portfolio-Export entscheidend ist (Privacy & Security)
 1. **100 % DSGVO- & Data Privacy Compliance:** Sämtliche rohen Bankdaten und Kontoauszüge verbleiben strikt in der lokalen Umgebung.
-2. **Mathematische Anonymisierung (Zero-Leakage):** Um sensible Sondereffekte (Abfindungen) und reale Vermögenswerte vor unbefugten Einblicken zu schützen, durchlaufen die Werte eine kontrollierte ETL-Skalierung (`* 0,7` für Cashflow, `* 0,3` für Sondersachverhalte).
+2. **Mathematische Anonymisierung (Zero-Leakage):** Um sensible Sondersachverhalte (Abfindungen) und reale Vermögenswerte vor unbefugten Einblicken zu schützen, durchlaufen die Werte eine kontrollierte ETL-Skalierung, wodurch echte Beträge unkenntlich gemacht werden.
 3. **Visuelle Proportionalität:** Die Skalierung bricht das Dashboard nicht – alle prozentualen KPIs (Fixkosten-Quote, Sparquote) und relativen Verläufe bleiben mathematisch exakt intakt.
 
 ---
@@ -31,7 +31,7 @@
 ## ⚡ Logic & Architecture Overview
 
 ### 🔒 Datenschutz durch intelligente ETL-Skalierung
-Der folgende Ausschnitt aus dem relationalen Datenmodell zeigt die bereinigte Tabellenstruktur, bei der reguläre Transaktionen (`transaktionen_cleaned`) und sensible Sondersachverhalte (`Abfindung_Betrag`) getrennt voneinander erfasst und vor dem Export transformiert werden[cite: 5]:
+Der folgende Ausschnitt aus dem relationalen Datenmodell zeigt die bereinigte Tabellenstruktur, bei der reguläre Transaktionen (`transaktionen_cleaned`) und sensible Sondersachverhalte (`Abfindung_Betrag`) getrennt voneinander erfasst und vor dem Export transformiert werden:
 
 ![Relationales Datenmodell (Sternschema)](data-model-relationships.png)
 
@@ -44,8 +44,8 @@ Der folgende Ausschnitt aus dem relationalen Datenmodell zeigt die bereinigte Ta
 - Einsatz von Booleschen Hilfsspalten (`Is_Umbuchung = TRUE/FALSE`) zur Filterung interner Kontoverschiebungen.
 
 ### B. Relationales Sternschema & Kalendertabelle
-- Erstellung einer eigenständigen, dynamischen Kalendertabelle mit 1-zu-n-Beziehung zur Transaktionstabelle[cite: 5].
-- Bereitstellung einer dedizierten DAX-Hilfstabelle (`Waterfall_Schritte`) zur sauberen Steuerung des Wasserfalldiagramms[cite: 4]:
+- Erstellung einer eigenständigen, dynamischen Kalendertabelle mit 1-zu-n-Beziehung zur Transaktionstabelle.
+- Bereitstellung einer dedizierten DAX-Hilfstabelle (`Waterfall_Schritte`) zur sauberen Steuerung des Wasserfalldiagramms:
 
 ![DAX Waterfall Schritte Logik](dax-waterfall-datatable.png)
 
