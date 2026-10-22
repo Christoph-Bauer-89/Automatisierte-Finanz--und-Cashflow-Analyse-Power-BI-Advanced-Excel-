@@ -1,0 +1,83 @@
+# 📊 Executive Financial & Cashflow Analytics: Power BI & Advanced ETL
+
+> **Eine professionelle, DSGVO-konforme End-to-End-Datenpipeline zur intelligenten Konsolidierung, Strukturierung und Analyse privater Bankdaten mittels Excel, Power Query, DAX und Power BI – inklusive integrierter mathematischer Anonymisierung für den sicheren öffentlichen GitHub-Export.**
+
+---
+
+## 🚀 Executive Summary
+
+- **Herausforderung:** Fragmentierte Rohdaten aus mehreren Bankkonten (CSV-Exporte) erschwerten eine transparente, tagesaktuelle Finanz- und Liquiditätssteuerung. Zudem mussten hochsensible Einmaleffekte (wie vertraglich geschützte Abfindungen) für eine öffentliche Portfolio-Präsentation rechtssicher und unkenntlich verschleiert werden.
+- **Lösung:** Entwicklung einer lokalen Data-Pipeline von der Rohdatenbereinigung über ein relationales Sternschema bis hin zu einem interaktiven C-Level Executive-Dashboard in Power BI, ergänzt durch eine smarte ETL-Skalierungslogik.
+- **Kern-Ergebnis:** Vollständige finanzielle Transparenz bei gleichzeitiger absoluter Wahrung von Vertraulichkeit und Datenschutz durch eine zweistufige Skalierung der Transaktions- und Sondersachverhalte.
+
+---
+
+## 🏗️ Tech Stack & Infrastructure Setup
+
+### 🛠️ Key Technologies
+- **Datenaufbereitung & RegEx:** Excel (Erweiterte Array-Formeln, regelbasierte Transaktions-Kategorisierung)
+- **ETL & Data Modeling:** Power Query (Schema-Harmonisierung, Fehlerbehandlung, Spaltenoptimierung)
+- **Business Intelligence & DAX:** Power BI Desktop, DAX-Measures (gleitende Durchschnitte, Quoten, dynamische Hilfstabellen)
+- **UI/UX Design:** Modern Fintech / Nordic Corporate Design (Deep Slate Blue `#1E3A8A`, Cool Gray, Warm Amber, Soft Emerald)
+- **Datenschutz & Anonymisierung:** Lokale Verarbeitung ohne Cloud-Upload sowie mathematische Multiplikatoren-Skalierung zum Schutz sensibler Vertragsdaten.
+
+### 💡 Warum diese Architektur für den Portfolio-Export entscheidend ist (Privacy & Security)
+1. **100 % DSGVO- & Data Privacy Compliance:** Sämtliche rohen Bankdaten und Kontoauszüge verbleiben strikt in der lokalen Umgebung.
+2. **Mathematische Anonymisierung (Zero-Leakage):** Um sensible Sondereffekte (Abfindungen) und reale Vermögenswerte vor unbefugten Einblicken zu schützen, durchlaufen die Werte eine kontrollierte ETL-Skalierung (`* 0,7` für Cashflow, `* 0,3` für Sondersachverhalte).
+3. **Visuelle Proportionalität:** Die Skalierung bricht das Dashboard nicht – alle prozentualen KPIs (Fixkosten-Quote, Sparquote) und relativen Verläufe bleiben mathematisch exakt intakt.
+
+---
+
+## ⚡ Logic & Architecture Overview
+
+### 🔒 Datenschutz durch intelligente ETL-Skalierung
+Der folgende Ausschnitt aus dem relationalen Datenmodell zeigt die bereinigte Tabellenstruktur, bei der reguläre Transaktionen (`transaktionen_cleaned`) und sensible Sondersachverhalte (`Abfindung_Betrag`) getrennt voneinander erfasst und vor dem Export transformiert werden[cite: 5]:
+
+![Relationales Datenmodell (Sternschema)](data-model-relationships.png)
+
+---
+
+## 🔍 Implementation Details
+
+### A. ETL-Bereinigung & RegEx-Kategorisierung (Excel & Power Query)
+- Konsolidierung monatlicher CSV-Auszüge über mehrere Konten hinweg.
+- Einsatz von Booleschen Hilfsspalten (`Is_Umbuchung = TRUE/FALSE`) zur Filterung interner Kontoverschiebungen.
+
+### B. Relationales Sternschema & Kalendertabelle
+- Erstellung einer eigenständigen, dynamischen Kalendertabelle mit 1-zu-n-Beziehung zur Transaktionstabelle[cite: 5].
+- Bereitstellung einer dedizierten DAX-Hilfstabelle (`Waterfall_Schritte`) zur sauberen Steuerung des Wasserfalldiagramms[cite: 4]:
+
+![DAX Waterfall Schritte Logik](dax-waterfall-datatable.png)
+
+### C. DAX-Modellierung & Kern-Measures
+- **Netto_Cashflow:** Präzise Erfassung des Saldos aus operativen Einnahmen und Ausgaben.
+- **Gesamtausgaben_3M_Avg:** Glättung saisonaler Schwankungen durch gleitende Durchschnitte.
+- **Fixkosten-Quote:** Automatische prozentuale Ermittlung des Fixkostenanteils an den Gesamtausgaben.
+
+---
+
+## 🖼️ Executive Dashboard UI/UX
+
+Das fertige Dashboard vereint modernste Design-Prinzipien mit maximaler Informationsdichte und absoluter Datensicherheit:
+
+![Executive Financial Dashboard](executive-dashboard-overview.png)
+
+---
+
+## 🎯 Key Learnings & Strategic Takeaways
+
+- **1. Datenschutz im Public Repository:** Technische Kompetenz bedeutet auch, sensible Daten (wie Abfindungen oder echte Kontostände) professionell zu verschleiern, ohne die visuelle Integrität von Analysen zu zerstören.
+- **2. Saubere ETL-Strecken:** Die Entkopplung von Rohdaten-Bereinigung und finalem BI-Reporting schafft eine robuste, fehlerfreie Datenbasis.
+- **3. C-Level Storytelling:** Ein durchdachtes Farbkonzept und klare KPI-Karten ermöglichen sekundenschnelle Insights in komplexe Finanzstrukturen.
+
+---
+
+## 📂 Repository-Struktur
+
+```text
+├── 📁 01_Data_Raw/                 # Lokale Rohdaten (nicht im Repository enthalten / .gitignored)
+├── 📁 02_PowerQuery/               # ETL-Transformationsskripte (.pq)
+├── 📁 03_PowerBI_Reports/          # Power BI Dashboard (.pbix)
+├── 🖼️ executive-dashboard-overview.png   # Haupt-Dashboard Ansicht
+├── 🖼️ data-model-relationships.png       # Sternschema & Relationen
+└── 🖼️ dax-waterfall-datatable.png        # DAX Waterfall Schritte Logik
