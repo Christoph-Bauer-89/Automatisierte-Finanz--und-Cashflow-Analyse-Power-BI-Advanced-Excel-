@@ -31,7 +31,7 @@
 ## ⚡ Logic & Architecture Overview
 
 ### 🔒 Datenschutz durch intelligente ETL-Skalierung
-Der folgende Ausschnitt aus dem relationalen Datenmodell zeigt die bereinigte Tabellenstruktur, bei der reguläre Transaktionen (`transaktionen_cleaned`) und sensible Sondersachverhalte (`Abfindung_Betrag`) getrennt voneinander erfasst und vor dem Export transformiert werden:
+Der folgende Ausschnitt aus dem relationalen Datenmodell zeigt die bereinigte Tabellenstruktur, bei der reguläre Transaktionen (`Betrag`) und sensible Sondersachverhalte (`Abfindung_Betrag`) getrennt voneinander erfasst und vor dem Export transformiert werden. Die gesamte Tabelle wird mit einem Kalendertabelle verbunden.
 
 ![Relationales Datenmodell (Sternschema)](data-model-relationships.png)
 
