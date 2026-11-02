@@ -71,7 +71,13 @@ Das fertige Dashboard vereint modernste Design-Prinzipien mit maximaler Informat
 
 1. **Datenschutz im Public Repository:** Technische Kompetenz bedeutet auch, sensible Daten (wie Abfindungen oder echte Kontostände) professionell zu verschleiern, ohne die visuelle Integrität von Analysen zu zerstören.
 2. **Saubere ETL-Strecken:** Die Entkopplung von Rohdaten-Bereinigung und finalem BI-Reporting schafft eine robuste, fehlerfreie Datenbasis.
-3. **C-Level Storytelling:** Ein durch
+3. **C-Level Storytelling:** Ein durchdachtes Farbkonzept und klare KPI-Karten ermöglichen sekundenschnelle Insights in komplexe Finanzstrukturen.
+
+---
+
+## 📂 Repository-Structure
+
+```text
 ├── executive-dashboard-overview.png # Haupt-Dashboard Ansicht
 ├── data-model-relationships.png     # Sternschema & Relationen
 ├── dax-waterfall-datatable.png      # DAX Waterfall Schritte Logik
