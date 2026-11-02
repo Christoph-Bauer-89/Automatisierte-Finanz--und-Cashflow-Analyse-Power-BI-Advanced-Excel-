@@ -82,3 +82,5 @@ Das fertige Dashboard vereint modernste Design-Prinzipien mit maximaler Informat
 ├── data-model-relationships.png     # Sternschema & Relationen
 ├── dax-waterfall-datatable.png      # DAX Waterfall Schritte Logik
 └── README.md                        # Projektdokumentation
+
+(Hinweis: Die .pbix-Datei sowie die lokalen ETL-Skripte verbleiben aus Sicherheits- und Datenschutzgründen in der lokalen Umgebung; das Konzept und die Dashboards werden vollständig über Dokumentation und Visuals demonstriert).
